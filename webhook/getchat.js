@@ -1,6 +1,8 @@
-
+const reqcheck = require('../middleware/sign');
 
 async function getchat(req, res) {
+  await reqcheck(req, res);
+  
   console.log(req.body);
   const body = req.body.webhook_event.body;
   const message = req.body.webhook_event.body;

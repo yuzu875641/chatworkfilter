@@ -15,7 +15,7 @@ if (cluster.isMaster) {
 } else {
   app.use(compression());
   app.listen(3000, () => {
-    console.log(`Worker ${process.pid} started`);
+    console.log(`${process.pid} started`);
   });
 }
 const axios = require('axios');
