@@ -12,13 +12,12 @@ const m = [
 
 async function emoji(body, roomId, accountId) {
     let count = 0;
-
     body.forEach(str => {
         if (m.includes(str)) {
             count++;
         }
     });
-
+  
     if (count >= 30) {
         block.blockMember(roomId, accountId)
     } else {
