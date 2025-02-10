@@ -5,7 +5,8 @@
   "dependencies": {
     "express": "^4.21.2",
     "axios": "latest",
-    "compression": "^1.7.5"
+    "compression": "^1.7.5",
+    "atob": "^2.1.2"
   },
   "narflinger": {
     "basenames": [
