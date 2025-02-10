@@ -1,7 +1,9 @@
 const block = require('../ctr/filter');
 
 const m = [
-  "picon"
+  "picon",
+  "hr",
+  "preview"
 ];
 
 async function pp(body, roomId, accountId) {
