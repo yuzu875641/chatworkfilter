@@ -1,16 +1,18 @@
-const dataArray = [
-  "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc",
-  "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc",
-  "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc",
-  "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc",
-  "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc"
+const m = [
+  ":)", ":(", ":D", "8-)", ":o", ";)", ";(", 
+  "(sweat)", ":|", ":*",":p", "(blush)", ":^)", "|-)",
+  "abc", "abc", "abc","abc", "abc", "abc", "abc",
+  "abc", "abc", "abc","abc", "abc", "abc", "abc",
+  "abc", "abc", "abc","abc", "abc", "abc", "abc",
+  "abc", "abc", "abc","abc", "abc", "abc", "abc",
+  "abc", "abc", "abc","abc", "abc", "abc", "abc",
 ];
 
-const checkStringsInText = (array, A) => {
+const checkStringsInText = (array) => {
     let count = 0;
 
     array.forEach(str => {
-        if (A.includes(str)) {
+        if (m.includes(str)) {
             count++;
         }
     });
