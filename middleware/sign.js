@@ -1,19 +1,28 @@
-const atob = require('atob');
+const crypto = require('crypto');
 
-const tokens = [
-    atob(process.env.webhookToken1)
+const webhookTokens = [
+    Buffer.from(process.env.webhookToken1, 'base64')
 ];
 
 async function trustSignature(req) {
-    const signature = req.header('x-chatworkwebhooksignature');
-    if (!signature) {
+    const receivedSignature = req.header('x-chatworkwebhooksignature');
+    if (!receivedSignature) {
         return "f";
     }
-    const decodedSignature = atob(signature);
-    if (!tokens.includes(decodedSignature)) {
-        return "ok";
+    
+    const contents = JSON.stringify(req.body);
+
+    for (const token of webhookTokens) {
+        const hmac = crypto.createHmac('sha256', token);
+        hmac.update(contents);
+        const expectedSignature = hmac.digest('base64');
+        
+        if (receivedSignature === expectedSignature) {
+            return "ok";
+        }
     }
-  return "f";
-};
+
+    return "f";
+}
 
 module.exports = trustSignature;

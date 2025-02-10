@@ -5,27 +5,24 @@ const mention = require('../module/mention');
 const zalgo = require('../module/zalgo');
 
 async function getchat(req, res) {
-  if (await reqcheck(req) !== "ok") {
+  const c = await reqcheck(req);
+  if (c !== "ok") {
     return res.sendStatus(400);
   }
-  
-  console.log(req.body);
-  const body = req.body.webhook_event.body;
-  const accountId = req.body.webhook_event.account_id;
-  const roomId = req.body.webhook_event.room_id;
-  
+
+  console.log(body);
+  const { body, account_id: accountId, room_id: roomId } = req.body.webhook_event;
+
   if (accountId === 9912086) {
     return res.sendStatus(200);
   }
-  
-  if(await emoji(body, roomId, accountId) === "ok"){
-    return res.sendStatus(200);
-  }
-  if(await mention(body, roomId, accountId) === "ok"){
-    return res.sendStatus(200);
-  }
-  if(await zalgo(body, roomId, accountId) === "ok"){
-    return res.sendStatus(200);
+
+  const handlers = [emoji, mention, zalgo];
+
+  for (const handler of handlers) {
+    if (await handler(body, roomId, accountId) === "ok") {
+      return res.sendStatus(200);
+    }
   }
 
   res.sendStatus(200);
