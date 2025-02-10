@@ -19,7 +19,8 @@ async function emoji(body, roomId, accountId) {
     });
   
     if (count >= 30) {
-        block.blockMember(roomId, accountId)
+        block.blockMember(roomId, accountId);
+        return "ok";
     } else {
         return;
     }
