@@ -32,6 +32,11 @@ app.get('/', (req, res) => {
   res.end(JSON.stringify(process.versions, null, 2));
 });
 
+app.get('/st', (req, res) => {
+    res.sendStatus(200);
+});
+
+
 app.post("/webhook", (req, res) => {
   mention(req, res);
 });
