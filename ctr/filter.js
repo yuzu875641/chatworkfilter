@@ -1,10 +1,10 @@
 const axios = require('axios');
 
-
+const cwdata = require('./ctr/cwdata');
 
 async function blockMember(roomId, accountIdToBlock) {
   try {
-    const members = await getChatworkMembers(roomId);
+    const members = await cwdata.getChatworkMembers(roomId);
 
     let adminIds = [];
     let memberIds = [];
