@@ -1,6 +1,9 @@
 const axios = require('axios');
 
 const cwdata = require('./ctr/cwdata');
+const msedit = require('./ctr/message');
+
+const CHATWORK_API_TOKEN = process.env.CWapitoken;
 
 async function blockMember(roomId, accountIdToBlock) {
   try {
@@ -42,9 +45,13 @@ async function blockMember(roomId, accountIdToBlock) {
         'x-chatworktoken': CHATWORK_API_TOKEN,
       },
     });
-    await sendchatwork(`[info][title]不正利用記録[/title][piconname:${accountIdToBlock}]さんに対して、不正利用フィルターが発動しました。[/info]`, roomId);
+    await msedit.sendchatwork(`[info][title]不正利用記録[/title][piconname:${accountIdToBlock}]さんに対して、不正利用フィルターが発動しました。[/info]`, roomId);
 
   } catch (error) {
     console.error('不正利用フィルターエラー:', error.response ? error.response.data : error.message);
   }
 }
+
+module.exports = {
+    blockMember
+};

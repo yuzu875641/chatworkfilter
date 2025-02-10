@@ -1,18 +1,29 @@
+const block = require('../ctr/filter');
 
+const m = [
+  ":", "(", ":D", "8-)", ":o", ";)", ";(", "(sweat)", ":|", ":*", ":p", 
+  "(blush)", ":^)", "|-)", "(inlove)", "]:)", "(talk)", "(yawn)", 
+  "(puke)", "(emo)", "8-|", ":#)", "(nod)", "(shake)", "(^^;)", "(whew)", 
+  "(clap)", "(bow)", "(roger)", "(flex)", "(dance)", "(:/)", "(gogo)", 
+  "(think)", "(please)", "(quick)", "(anger)", "(devil)", "(lightbulb)", 
+  "(*)", "(h)", "(F)", "(cracker)", "(eat)", "(^)", "(coffee)", "(beer)", 
+  "(handshake)", "(y)"
+];
 
-const checkStringsInText = (array) => {
+async function emoji(body, roomId, accountId) {
     let count = 0;
 
-    array.forEach(str => {
+    body.forEach(str => {
         if (m.includes(str)) {
             count++;
         }
     });
 
     if (count >= 30) {
-        console.log("30個以上含まれています。");
+        block.blockMember(roomId, accountId)
     } else {
-        console.log("30個未満です。");
+        return;
     }
 };
 
+module.exports = emoji;
