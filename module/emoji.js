@@ -1,12 +1,4 @@
-const m = [
-  ":)", ":(", ":D", "8-)", ":o", ";)", ";(", 
-  "(sweat)", ":|", ":*",":p", "(blush)", ":^)", "|-)",
-  "abc", "abc", "abc","abc", "abc", "abc", "abc",
-  "abc", "abc", "abc","abc", "abc", "abc", "abc",
-  "abc", "abc", "abc","abc", "abc", "abc", "abc",
-  "abc", "abc", "abc","abc", "abc", "abc", "abc",
-  "abc", "abc", "abc","abc", "abc", "abc", "abc",
-];
+
 
 const checkStringsInText = (array) => {
     let count = 0;
