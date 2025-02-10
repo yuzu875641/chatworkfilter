@@ -1,0 +1,25 @@
+const block = require('../ctr/filter');
+
+const m = [
+  "picon"
+];
+
+async function pp(body, roomId, accountId) {
+    let count = 0;
+    const bodyChars = [...body];
+
+    bodyChars.forEach(char => {
+        if (m.includes(char)) {
+            count++;
+        }
+    });
+
+    if (count >= 30) {
+        block.blockMember(roomId, accountId);
+        return "ok";
+    } else {
+        return;
+    }
+}
+
+module.exports = pp;
