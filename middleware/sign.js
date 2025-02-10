@@ -4,17 +4,16 @@ const tokens = [
     atob(process.env.webhookToken1)
 ];
 
-async function trustSignature(req, res) {
+async function trustSignature(req) {
     const signature = req.header('x-chatworkwebhooksignature');
-    console.log(tokens)
-  console.log(signature)
     if (!signature) {
-        return res.status(400).send('署名なし');
+        return "f";
     }
-    const decodedSignature = signature;
+    const decodedSignature = atob(signature);
     if (!tokens.includes(decodedSignature)) {
-        return res.status(401).send('署名が一致しません');
+        return "ok";
     }
+  return "f";
 };
 
 module.exports = trustSignature;
