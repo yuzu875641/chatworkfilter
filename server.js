@@ -19,9 +19,7 @@ if (cluster.isMaster) {
   });
 }
 
-const axios = require('axios');
 const https = require('https');
-
 const mention = require('./webhook/mention');
 const getchat = require('./webhook/getchat');
 
@@ -35,7 +33,6 @@ app.get('/', (req, res) => {
 app.get('/st', (req, res) => {
     res.sendStatus(200);
 });
-
 
 app.post("/webhook", (req, res) => {
   mention(req, res);
