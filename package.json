@@ -3,7 +3,9 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.21.2",
+    "axios": "latest",
+    "compression": "^1.7.5"
   },
   "narflinger": {
     "basenames": [
