@@ -1,4 +1,10 @@
-const stringsArray = ["example1", "example2", "example3"];
+const dataArray = [
+  "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc",
+  "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc",
+  "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc",
+  "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc",
+  "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc", "abc"
+];
 
 const checkStringsInText = (array, A) => {
     let count = 0;
