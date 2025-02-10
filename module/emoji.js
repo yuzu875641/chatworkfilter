@@ -12,18 +12,20 @@ const m = [
 
 async function emoji(body, roomId, accountId) {
     let count = 0;
-    body.forEach(str => {
-        if (m.includes(str)) {
+    const bodyChars = [...body];
+
+    bodyChars.forEach(char => {
+        if (m.includes(char)) {
             count++;
         }
     });
-  
+
     if (count >= 30) {
         block.blockMember(roomId, accountId);
         return "ok";
     } else {
         return;
     }
-};
+}
 
 module.exports = emoji;

@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-const cwdata = require('./ctr/cwdata');
-const msedit = require('./ctr/message');
+const cwdata = require('/app/ctr/cwdata');
+const msedit = require('/app/ctr/message');
 
 const CHATWORK_API_TOKEN = process.env.CWapitoken;
 

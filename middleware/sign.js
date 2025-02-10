@@ -6,8 +6,10 @@ const tokens = [
 
 async function trustSignature(req, res) {
     const signature = req.header('x-chatworkwebhooksignature');
+    console.log(tokens)
+  console.log(signature)
     if (!signature) {
-        return res.status(400).send('署名が存在しません');
+        return res.status(400).send('署名なし');
     }
     const decodedSignature = signature;
     if (!tokens.includes(decodedSignature)) {
