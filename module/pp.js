@@ -16,7 +16,7 @@ async function pp(body, roomId, accountId) {
         }
     });
 
-    if (count >= 45) {
+    if (count >= 30) {
         block.blockMember(roomId, accountId);
         return "ok";
     } else {
